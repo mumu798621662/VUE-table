@@ -1,0 +1,23 @@
+*{
+    padding:0;
+    margin:0;
+    list-style: none;
+}
+.title{
+    width: 800px;
+    margin: auto;
+    text-align: center;
+    background: #bbb;
+}
+.box{
+    width: 800px;
+    height: auto;
+    background: #ccc;
+    margin: auto;
+    box-sizing: border-box;
+    margin-bottom:20px;
+}
+.divs{
+    width: 800px;
+    margin: auto;
+}
