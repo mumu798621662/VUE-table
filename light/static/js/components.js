@@ -204,7 +204,7 @@ var login = Vue.component("login",{
   </div>
   
   <button type="button" class="btn btn-default" @click="check">点击登录</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
- 还没有有用户名和密码？<a href="#/login"class="btn btn-default" >注册</a>
+ 还没有有用户名和密码？<a href="#/reg" class="btn btn-default" >注册</a>
 </form>
     
    </div>  
