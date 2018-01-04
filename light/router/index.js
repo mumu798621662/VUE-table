@@ -83,16 +83,21 @@ router.get("/update/:id",function(req,res){
 router.get("/check",function (req,res) {
     var name = req.query.name;
     var pass = md5(req.query.pass);
+    console.log(name)
     connection.query(`select * from user where uname='${name}' and upass='${pass}'`,function(err,result){
         console.log(result)
         if(err){
+            console.log(1)
             var obj = {code:'',state:'err'}
-            res.end('err')
+            res.send('err')
         }else{
+
             if(result.length>0){
+                console.log(2)
                 var obj = {code:md5(name),state:'ok'}
                 res.send(JSON.stringify(obj))
             }else{
+                console.log(3)
                 var obj = {code:'',state:'err'}
                 res.send('err')
             }
@@ -117,7 +122,7 @@ router.get("/check1",function (req,res) {
 
 router.post("/adduser",function(req,res){
     var name = (req.body.name)
-    var pass = (req.body.pass)
+    var pass = md5(req.body.pass)
     connection.query(`insert into user (uname,upass) values ('${name}','${pass}')`,function(err,result){
         if(err){
             res.end('err')

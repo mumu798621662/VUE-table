@@ -1,20 +1,20 @@
 var Tables = Vue.component("Tables",{
     template:`
     <div>
-    <table  class="table table-bordered">
-      <tr>
+    <table  class="table table-bordered" style="width: 800px;margin: auto;">
+      <tr style="padding:5px">
         <th>姓名</th>
         <th>性别</th>
         <th>年龄</th>
         <th>操作</th>
       </tr>
-      <tr v-for="item in datas">
+      <tr v-for="item in datas" style="padding:5px">
         <td>{{item.name}}</td>
         <td>{{item.sex}}</td>
         <td>{{item.age}}</td>
         <td>
-          <a  @click="del(item.id)">删除</a>
-          <a :href="'#/update/'+item.id" >修改</a>
+          <a  @click="del(item.id)" class="btn btn-danger">删除</a>
+          <a :href="'#/update/'+item.id" class="btn btn-success">修改</a>
         </td>
       </tr>
 </table>
@@ -196,11 +196,11 @@ var login = Vue.component("login",{
     <form>
   <div class="form-group">
     <label for="exampleInputEmail1">用户名</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="用户名">
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="用户名" v-model="name">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">密码</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码" v-model="pass">
   </div>
   
   <button type="button" class="btn btn-default" @click="check">点击登录</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -221,7 +221,7 @@ var login = Vue.component("login",{
         check(){
             var search = "name="+this.name+"&pass="+this.pass;
             fetch("/check?"+search).then(function (e) {
-              return e.json()
+              return e.json();
             }).then((e)=>{
                 if(e.state=='ok'){
                     console.log(1)
@@ -255,12 +255,12 @@ var reg = Vue.component("reg",{
   
   <div class="form-group">
     <label for="exampleInputPassword1">密码</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码" v-model="pass">
+    <input type="password" class="form-control" id="exampleInputPassword12" placeholder="密码" v-model="pass">
   </div>
   
     <div class="form-group">
     <label for="exampleInputPassword1">确认密码</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="确认密码" v-model="pass1">
+    <input type="password" class="form-control" id="exampleInputPassword13" placeholder="确认密码" v-model="pass1">
   </div>
   
   <button type="button" class="btn btn-default" @click="submit">点击注册</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -324,11 +324,11 @@ var heads = Vue.component("heads",{
     template:`
          <div class="box">
           <h1 class="title">可编辑表格</h1>
-         <router-link to="/add">
-             <a>添加</a>
+         <router-link to="/add" style="padding-left: 650px">
+             <a  class="btn btn-info" >添加</a>
          </router-link>
-         <router-link to="/">
-             <a>首页</a>
+         <router-link to="/" >
+             <a  class="btn btn-primary">首页</a>
          </router-link>
      </div>
     `
